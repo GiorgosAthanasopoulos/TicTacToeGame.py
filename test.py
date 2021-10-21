@@ -17,8 +17,9 @@ class tic_tac_toe_game:
 
         while winner == 'None':
             if wrong:
-                self.clear_last_line()
+                self.after_input()
                 wrong = False
+
             self.print(f'Enter integer to place {turn} into: ', 'red')
             try:
                 temp = int(input())
@@ -36,16 +37,15 @@ class tic_tac_toe_game:
             winner = self.check_winner()
             self.after_input()
 
+        self.print_winner(winner)
+
+    def print_winner(self, winner):
         self.clear_console()
         self.print(f'\rWinner: {winner}', 'purple')
         time.sleep(3)
         self.clear_console()
 
     def after_input(self):
-        self.clear_console()
-        self.print_board()
-    
-    def clear_last_line(self):
         self.clear_console()
         self.print_board()
 
